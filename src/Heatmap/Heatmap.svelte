@@ -195,6 +195,6 @@ h3 {
   /* padding-top: 0.5em; */
   color: inherit;
   font-weight: 400;
-  padding-right: 0.9rem;
+  padding-right: 0.7rem;
 }
 </style>

@@ -6,6 +6,7 @@
 	import definitelyByCandidate from "./data/definitely-by-candidate.js"
 	import winnerByCandidate from "./data/winner-by-candidate.js"
 	import votedByCandidate from "./data/voted-by-candidate.js"
+	import votedAllByCandidate from "./data/voted-all-by-candidate.js"
 	import changeByCandidate from "./data/change-by-candidate.js"
 	import ethnicityByCandidate from "./data/ethnicity-by-candidate.js"
 	import ageByCandidate from "./data/age-by-candidate.js"
@@ -63,6 +64,11 @@
 		xLabel="Who did you vote for in the Democratic Primary in 2016?"
 		yLabel="Of the following Democratic candidates for President, who would you be most likely to support?"
 		data={votedByCandidate}
+	/>
+	<Heatmap
+		xLabel="Who did you vote for in the 2016 election?"
+		yLabel="Of the following Democratic candidates for President, who would you be most likely to support?"
+		data={votedAllByCandidate}
 	/>
 	<Heatmap
 		xLabel="If your choice of candidate does not receive the Democratic nomination, will you still vote for the Democratic nominee?"
