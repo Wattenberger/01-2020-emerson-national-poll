@@ -54,6 +54,9 @@
       </div>
       {#each xOptions as xOption, xIndex}
         <div class="row-item" style={`background-color: ${colorScale(item[xOption] / columnTotals[xIndex])}`}>
+          <div class={`row-item-number row-item-number--is-${getItemPercent(item[xOption], xIndex) > 30 ? "inverted" : "normal" }`}>
+            { item[xOption] }
+          </div>
           <div class={`row-item-text row-item-text--is-${getItemPercent(item[xOption], xIndex) > 30 ? "inverted" : "normal" }`}>
             { getItemPercent(item[xOption], xIndex) }
             <span class="row-item-text-percent">
@@ -93,15 +96,17 @@ h3 {
   font-size: 0.8em;
   line-height: 1.3em;
   margin: 0.8em 0;
-  color: #1f246d;
+  color: #939599;
 }
 .y-title {
   padding-left: 230px;
-  max-width: 650px;
+  width: 670px;
+  text-align: center;
   margin-bottom: -3em;
 }
 .header {
   display: flex;
+  margin-left: -10px;
 }
 .header .row-item {
   display: flex;
@@ -120,12 +125,18 @@ h3 {
 }
 .row {
   display: flex;
+  margin-left: -10px;
+}
+.row:hover {
+  /* background: #f4f4f4; */
+  outline:  1px #645586 solid;
 }
 .row-label {
   display: flex;
   align-items: center;
   text-align: left;
   flex: 0 0 230px;
+  padding-left: 10px;
 }
 .row-item {
   flex: 0 0 3rem;
@@ -134,8 +145,13 @@ h3 {
   margin: 0 8px;
   text-align: right;
   font-size: 0.8em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .row-item-text {
+  display: flex;
+  align-items: baseline;
   color: #645586;
   /* font-weight: 600; */
   mix-blend-mode: darken;
@@ -144,17 +160,36 @@ h3 {
   color: white;
   mix-blend-mode: screen;
 }
+.row-item-number {
+  color: #645586;
+  /* font-weight: 600; */
+  mix-blend-mode: darken;
+  opacity: 0;
+  pointer-events: none;
+}
+.row-item-number--is-inverted {
+  color: white;
+  mix-blend-mode: screen;
+}
+
+.row-item:hover .row-item-number {
+  opacity: 1;
+}
 .row-item-text-percent {
   opacity: 0.5;
 }
 .totals {
   display: flex;
   color: #939599;
+  margin-left: -10px;
 }
 .totals .row-label {
   font-weight: 400;
   font-size: 0.8em;
   line-height: 1.3em;
+}
+.totals .row-item {
+  justify-content: flex-end;
 }
 .totals .row-item-text {
   /* padding-top: 0.5em; */
